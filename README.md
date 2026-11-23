@@ -26,21 +26,21 @@ Schema specification — 11 tables, precise data types, constraints, audit field
     ModifiedDate	      DATETIME	            AUDITNULL
     
 ## 2.Doctor Table
-#   Field	                Data Type            	  Constraint
- DoctorID	              INT	                  PKIDENTITY(1,1), NOT NULL
-DoctorCode             	VARCHAR(20)           UQNOT NULL, UNIQUE
-DoctorName            	VARCHAR(150)          NOT NULL
-DepartmentID	          INT	                  FKNOT NULL → Department.DepartmentID
-Specialization        	VARCHAR(100)          NULL
-Qualification	          VARCHAR(200)        	NULL
-MobileNo	              VARCHAR(20)          	NULL
-Email	                  VARCHAR(150)	        NULL
-RegistrationNo        	VARCHAR(50)          	NULL
-IsActive	              BIT	                  DEFAULT 1
-CreatedBy              	INT	                  AUDITFKNOT NULL → User.UserID
-CreatedDate	            DATETIME	            AUDITDEFAULT GETDATE()
-ModifiedBy	            INT	                  AUDITFKNULL → User.UserID
-ModifiedDate	          DATETIME	            AUDITNULL
+ #   Field	                Data Type            	  Constraint
+   DoctorID	              INT	                  PKIDENTITY(1,1), NOT NULL
+  DoctorCode             	VARCHAR(20)           UQNOT NULL, UNIQUE
+  DoctorName            	VARCHAR(150)          NOT NULL
+  DepartmentID	          INT	                  FKNOT NULL → Department.DepartmentID
+  Specialization        	VARCHAR(100)          NULL
+  Qualification	          VARCHAR(200)        	NULL
+  MobileNo	              VARCHAR(20)          	NULL
+  Email	                  VARCHAR(150)	        NULL
+  RegistrationNo        	VARCHAR(50)          	NULL
+  IsActive	              BIT	                  DEFAULT 1
+  CreatedBy              	INT	                  AUDITFKNOT NULL → User.UserID
+  CreatedDate	            DATETIME	            AUDITDEFAULT GETDATE()
+  ModifiedBy	            INT	                  AUDITFKNULL → User.UserID
+  ModifiedDate	          DATETIME	            AUDITNULL
   # Relationship
            DepartmentID references Department(DepartmentID).
   
@@ -103,15 +103,15 @@ ModifiedDate          	DATETIME	                AUDITNULL
 
 ## 6.Bed Table
 # Field	                  Data Type	                Constraint
-BedID	                  INT	                      PKIDENTITY(1,1), NOT NULL
-WardID	                INT	                        FKNOT NULL → Ward.WardID
-BedNo	                  VARCHAR(30)	                NOT NULL
-BedStatus	              VARCHAR(30)	                DEFAULT 'Available'
-IsActive	              BIT                        	DEFAULT 1
-CreatedBy	              INT                        	AUDITFKNOT NULL → User.UserID
-CreatedDate	            DATETIME                    AUDITDEFAULT GETDATE()
-ModifiedBy	            INT	                        AUDITFKNULL → User.UserID
-ModifiedDate            DATETIME                  	AUDITNULL
+  BedID	                  INT	                      PKIDENTITY(1,1), NOT NULL
+  WardID	                INT	                        FKNOT NULL → Ward.WardID
+  BedNo	                  VARCHAR(30)	                NOT NULL
+  BedStatus	              VARCHAR(30)	                DEFAULT 'Available'
+  IsActive	              BIT                        	DEFAULT 1
+  CreatedBy	              INT                        	AUDITFKNOT NULL → User.UserID
+  CreatedDate	            DATETIME                    AUDITDEFAULT GETDATE()
+  ModifiedBy	            INT	                        AUDITFKNULL → User.UserID
+  ModifiedDate            DATETIME                  	AUDITNULL
   #    Relationship
           WardID → Ward(WardID)
 
