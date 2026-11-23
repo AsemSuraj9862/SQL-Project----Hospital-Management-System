@@ -26,7 +26,7 @@ Schema specification — 11 tables, precise data types, constraints, audit field
     ModifiedDate	      DATETIME	            AUDITNULL
     
 ## 2.Doctor Table
- #   Field	              Data Type            	Constraint
+#   Field	                Data Type            	  Constraint
  DoctorID	              INT	                  PKIDENTITY(1,1), NOT NULL
 DoctorCode             	VARCHAR(20)           UQNOT NULL, UNIQUE
 DoctorName            	VARCHAR(150)          NOT NULL
@@ -45,7 +45,7 @@ ModifiedDate	          DATETIME	            AUDITNULL
            DepartmentID references Department(DepartmentID).
   
 ## 3.Patient Table
-# Field	                Data Type	            Constraint
+#   Field	                Data Type	            Constraint
 PatientID	              BIGINT              	PKIDENTITY(1,1), NOT NULL
 UHID                   	VARCHAR(30)	          UQNOT NULL, UNIQUE
 PatientName            	VARCHAR(150)          NOT NULL
@@ -68,7 +68,7 @@ ModifiedBy	            INT                  	AUDITFKNULL → User.UserID
 ModifiedDate           	DATETIME	            AUDITNULL
 
 ## 4.Appointment Table
-# Field                	Data Type             	Constraint
+# Field                  	Data Type             	Constraint
 AppointmentID          	BIGINT	                 PKIDENTITY(1,1), NOT NULL
 PatientID              	BIGINT	                 FKNOT NULL → Patient.PatientID
 DoctorID	              INT	                     FKNOT NULL → Doctor.DoctorID
@@ -89,7 +89,7 @@ ModifiedDate	          DATETIME	                AUDITNULL
               DoctorID → Doctor(DoctorID)
 
 ## 5.Ward Table
-# Field	                Data Type	                 Constraint
+# Field	                  Data Type	                 Constraint
 WardID	                INT                      	PKIDENTITY(1,1), NOT NULL
 WardName	              VARCHAR(100)            	NOT NULL
 WardType               	VARCHAR(50)	              NULL — e.g. General, ICU, Private
@@ -102,7 +102,7 @@ ModifiedBy	            INT	                      AUDITFKNULL → User.UserID
 ModifiedDate          	DATETIME	                AUDITNULL
 
 ## 6.Bed Table
-# Field	                Data Type	                Constraint
+# Field	                  Data Type	                Constraint
 BedID	                  INT	                      PKIDENTITY(1,1), NOT NULL
 WardID	                INT	                        FKNOT NULL → Ward.WardID
 BedNo	                  VARCHAR(30)	                NOT NULL
@@ -116,7 +116,7 @@ ModifiedDate            DATETIME                  	AUDITNULL
           WardID → Ward(WardID)
 
 ## 7.Inpatient Admission Table
-# Field	                Data Type                    Constraint
+# Field	                  Data Type                    Constraint
 IPID	                  BIGINT	                      PKIDENTITY(1,1), NOT NULL
 IPNo                  	VARCHAR(30)                      	UQNOT NULL, UNIQUE
 PatientID	              BIGINT	                      FKNOT NULL → Patient.PatientID
@@ -139,7 +139,7 @@ ModifiedDate          	DATETIME	                    AUDITNULL
         BedID → Bed(BedID)
 
 ## 8.Service Master Table
-# Field                	Data Type	                     Constraint
+# Field                  	Data Type	                     Constraint
 ServiceID	              INT	                            PKIDENTITY(1,1), NOT NULL
 ServiceCode	            VARCHAR(30)                    	UQNOT NULL, UNIQUE
 ServiceName             VARCHAR(200)	                  NOT NULL
@@ -153,7 +153,7 @@ ModifiedBy	            INT                            	AUDITFKNULL → User.User
 ModifiedDate	          DATETIME	                      AUDITNULL
 
 ## 9.IP Service Table
-# Field                	Data Type                    	Constraint
+# Field                  	Data Type                    	Constraint
 IPServiceID	            BIGINT	                      PKIDENTITY(1,1), NOT NULL
 IPID	                  BIGINT	                      FKNOT NULL → IPAdmission.IPID
 ServiceID	              INT                          	FKNOT NULL → ServiceMaster.ServiceID
@@ -173,7 +173,7 @@ ModifiedDate          	DATETIME                    	AUDITNULL
       ServiceID → ServiceMaster(ServiceID)
 
 ## 10.Billing Table
-# Field                	Data Type	                    Constraint
+# Field                  	Data Type	                    Constraint
 BillID	                BIGINT                      	PKIDENTITY(1,1), NOT NULL
 BillNo	                VARCHAR(30)                  	UQNOT NULL, UNIQUE
 PatientID	              BIGINT	                      FKNOT NULL → Patient.PatientID
