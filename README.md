@@ -15,7 +15,7 @@ Schema specification — 11 tables, precise data types, constraints, audit field
   10.Billing Table
 
 ## 1.User Table(foundation)
- #   Field	              Data Type	           Constraint
+ #   Field	             Data Type	           Constraint
     DepartmentID	      INT                   PKIDENTITY(1,1), NOT NULL
     DepartmentName    	VARCHAR(100)          NOT NULL
     Description	        VARCHAR(500)	        NULL
